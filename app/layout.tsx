@@ -1,8 +1,7 @@
 import './globals.css'
+import Navbar from './components/Nav'
 import {getServerSession} from 'next-auth/next'
-import Nav from './components/Nav'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,11 +13,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions)
   return (
     <html lang="en">
-      <body className="mx-64">
-        <Nav user={session?.user} expires={session?.expires as string}/>
+      <body>
+      <Navbar user={session?.user} expires={session?.expires as string}/>
         {children}
         </body>
     </html>
