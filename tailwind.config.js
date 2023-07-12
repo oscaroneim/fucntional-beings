@@ -6,8 +6,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        elbow: "url(@/public/elbow.jpg)",
+      },
+    },
   },
-  plugins: [require ("daisyui")],
-}
-
+  plugins: [require("daisyui")],
+};
